@@ -80,6 +80,7 @@ export default function SearchPage({ params }: SearchPageProps) {
                 key={index}
                 title={comic?.title}
                 slug={comic?.slug}
+                link={comic?.link}
                 chapter={comic?.chapter}
                 genre={comic?.type}
                 image={comic?.thumbnail}

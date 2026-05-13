@@ -1,3 +1,4 @@
+import { extractSlug } from "@/utils/extractSlug";
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
 
@@ -7,6 +8,7 @@ interface ComicCardProps {
   genre: string;
   image?: string;
   slug?: string;
+  link: string;
 }
 
 export default function ComicCard({
@@ -15,6 +17,7 @@ export default function ComicCard({
   genre,
   image,
   slug,
+  link,
 }: ComicCardProps) {
   const thumbnail =
     image && image.trim() !== ""
@@ -23,7 +26,7 @@ export default function ComicCard({
 
   return (
     <Link
-      href={`/comic/${slug ? slug : slugify(title)}`}
+      href={`/comic/${slug ? slug : extractSlug(link)}`}
       className="group cursor-pointer transition duration-300 hover:-translate-y-1"
     >
       <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-zinc-900">
