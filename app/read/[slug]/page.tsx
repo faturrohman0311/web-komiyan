@@ -170,7 +170,7 @@ export default function ReadComicPage({ params }: ReadComicPageProps) {
       <section className="pt-6 md:pt-10 pb-32">
         <div className="max-w-5xl mx-auto">
           <div className="space-y-[2px]">
-            {chapter?.images?.map((image: string, index: number) => (
+            {chapter?.images?.slice(1).map((image: string, index: number) => (
               <div key={index} className="relative group">
                 <img
                   src={image}
