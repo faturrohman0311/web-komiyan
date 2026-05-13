@@ -28,7 +28,7 @@ const TrendingComic = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 mt-24">
+    <section id="trending" className="max-w-7xl mx-auto px-6 mt-24">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold">Sedang Trending</h2>
 

@@ -37,19 +37,31 @@ export default function Navbar() {
               Beranda
             </Link>
 
-            <Link href="/populer" className="hover:text-white transition">
-              Populer
+            <Link href="/#trending" className="hover:text-white transition">
+              Trending
             </Link>
 
-            <Link href="/genre" className="hover:text-white transition">
+            <Link
+              href="#"
+              onClick={() => {
+                alert("Comingsoon");
+              }}
+              className="hover:text-white transition"
+            >
               Genre
             </Link>
 
-            <Link href="/terbaru" className="hover:text-white transition">
+            <Link href="/#terbaru" className="hover:text-white transition">
               Terbaru
             </Link>
 
-            <Link href="/bookmark" className="hover:text-white transition">
+            <Link
+              href="#"
+              onClick={() => {
+                alert("Comingsoon");
+              }}
+              className="hover:text-white transition"
+            >
               Bookmark
             </Link>
           </nav>

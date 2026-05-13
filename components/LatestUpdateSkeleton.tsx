@@ -1,6 +1,6 @@
 const LatestUpdateSkeleton = () => {
   return (
-    <section className="mt-24 px-6">
+    <section id="terbaru" className="mt-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Grid */}
         <div className="grid md:grid-cols-3 gap-5">
