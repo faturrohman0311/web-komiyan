@@ -79,6 +79,7 @@ export default function Navbar() {
                 placeholder="Cari manga..."
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
+                type="search"
                 className="bg-transparent outline-none text-sm ml-2 w-full text-white"
               />
             </form>
@@ -128,14 +129,20 @@ export default function Navbar() {
         </div>
 
         {/* Search Mobile */}
-        <div className="flex items-center bg-zinc-900 rounded-2xl px-4 h-12 border border-white/5 mb-8">
+        <form
+          onSubmit={handleSearch}
+          className="flex items-center bg-zinc-900 rounded-2xl px-4 h-12 border border-white/5 mb-8"
+        >
           <Search size={18} className="text-zinc-400" />
 
           <input
             placeholder="Cari manga..."
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            type="search"
             className="bg-transparent outline-none text-sm ml-3 w-full text-white"
           />
-        </div>
+        </form>
 
         {/* Mobile Menu */}
         <nav className="flex flex-col gap-3">
