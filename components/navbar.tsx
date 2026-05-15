@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Search, User, X } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
@@ -41,13 +43,7 @@ export default function Navbar() {
               Trending
             </Link>
 
-            <Link
-              href="#"
-              onClick={() => {
-                alert("Comingsoon");
-              }}
-              className="hover:text-white transition"
-            >
+            <Link href="/genre" className="hover:text-white transition">
               Genre
             </Link>
 
@@ -55,13 +51,7 @@ export default function Navbar() {
               Terbaru
             </Link>
 
-            <Link
-              href="#"
-              onClick={() => {
-                alert("Comingsoon");
-              }}
-              className="hover:text-white transition"
-            >
+            <Link href="/bookmark" className="hover:text-white transition">
               Bookmark
             </Link>
           </nav>
@@ -85,9 +75,21 @@ export default function Navbar() {
             </form>
 
             {/* Login */}
-            <button className="h-10 px-5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 text-sm font-semibold hover:opacity-90 transition">
-              Login
-            </button>
+            {!user ? (
+              <Link
+                href="/login"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:opacity-90 transition"
+              >
+                Login
+              </Link>
+            ) : (
+              <Link
+                href="/profile"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:opacity-90 transition"
+              >
+                <User size={18} className="text-white" />
+              </Link>
+            )}
           </div>
 
           {/* Mobile Hamburger */}
@@ -183,9 +185,22 @@ export default function Navbar() {
         </nav>
 
         {/* Login Button */}
-        <button className="mt-auto h-12 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:opacity-90 transition">
-          Login
-        </button>
+        {!user ? (
+          <Link
+            href="/login"
+            className="mt-auto h-12 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:opacity-90 transition"
+          >
+            Login
+          </Link>
+        ) : (
+          <Link
+            href="/profile"
+            className="mt-auto h-12 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500 font-semibold hover:opacity-90 transition flex items-center justify-center gap-2"
+          >
+            <User size={18} className="text-white" />
+            Profile
+          </Link>
+        )}
       </aside>
     </>
   );

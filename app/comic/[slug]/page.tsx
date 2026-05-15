@@ -1,5 +1,6 @@
 "use client";
 
+import BookmarkButton from "@/components/anime/BookmarkButton";
 import Navbar from "@/components/navbar";
 import { getDetailComic } from "@/lib/api";
 import { Bookmark, BookOpen, ChevronRight, Star } from "lucide-react";
@@ -21,7 +22,7 @@ export default function ComicDetailPage({ params }: ComicDetailPageProps) {
 
     try {
       const data = await getDetailComic(slug);
-
+      console.log(data);
       setComic(data);
     } catch (error) {
       console.log(error);
@@ -185,9 +186,7 @@ export default function ComicDetailPage({ params }: ComicDetailPageProps) {
                   Mulai Baca
                 </Link>
 
-                <button className="h-14 w-14 rounded-2xl bg-zinc-900 border border-white/5 flex items-center justify-center hover:bg-zinc-800 transition">
-                  <Bookmark size={20} />
-                </button>
+                <BookmarkButton comic={comic} />
               </div>
 
               {/* SYNOPSIS */}
